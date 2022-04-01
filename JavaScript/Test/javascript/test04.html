@@ -1,0 +1,33 @@
+<!DocTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS代码设置节点的属性</title>
+</head>
+<body>
+<script type="text/javascript">
+   window.onload = function () {
+      //给按钮绑定click
+      document.getElementById("btn").onclick = function () {
+         var email = document.getElementById("email").value;
+         var emailRegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+         var ok = emailRegExp.test(email);
+         if (ok) {
+            document.getElementById("emailError").innerText = "邮箱地址合法";
+         } else {
+            document.getElementById("emailError").innerText = "邮箱地址不合法"
+         }
+      }
+      //给文本框绑定focus
+      document.getElementById("email").onfocus = function () {
+         document.getElementById("emailError").innerText = "";
+      }
+   }
+
+</script>
+<input type="text" id="email"/>
+<span id="emailError" style="color:red; font-size:22px; "></span>
+<br>
+<input type="button" value="验证邮箱是否合法" id="btn"/>
+</body>
+</html>

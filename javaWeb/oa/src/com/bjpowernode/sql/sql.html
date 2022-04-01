@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+      drop table if exists dept;
+      create table dept(
+      deptno int primary key,
+      dname varchar(255),
+      loc varchar(255)
+      );
+      insert into dept(deptno,dname,loc) values(10,'XiaoShouBu','BeiJing');
+      insert into dept(deptno,dname,loc) values(20,'YanFaBu','ShangHai');
+      insert into dept(deptno,dname,loc) values(30,'JiShuBu','GuangZhou');
+      insert into dept(deptno,dname,loc) values(40,'MeiTiBu','ShenZhen');
+      commit;
+      select * from dept;
+    </table>
+
+
+</body>
+</html>

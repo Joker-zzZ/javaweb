@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkbox</title>
+</head>
+<body>
+    <script>
+        window.onload = function (){
+            //获取全选复选框对象
+            var firstCheckElt = document.getElementById("firstCheck");
+            firstCheckElt.onclick = function (){
+                var hobbies = document.getElementsByName("hobby");
+                for ( var i = 0 ; i < hobbies.length ; i++){
+                    hobbies[i].checked = firstCheckElt.checked;
+                }
+                //对hobbies数组进行遍历
+                for (var i = 0; i < hobbies.length; i++) {
+                    hobbies[i].onclick = function (){
+                        var checkCount = 0;
+                        //当hobbies数组的长度和选中的数量相等时，全选框选中
+                        for (var i = 0 ; i < hobbies.length ; i++){
+                            if (hobbies[i].checked){
+                                checkCount++;
+                            }
+                        }
+                        firstCheckElt.checked = (hobbies.length == checkCount);
+                    }
+                }
+                /*if (firstCheckElt.checked){
+                    //全选
+                    for ( var i = 0 ; i < hobbies.length ; i++){
+                        hobbies[i].checked = true;
+                    }
+                }else {
+                    //取消全选
+                    for ( var i = 0 ; i < hobbies.length ; i++){
+                        hobbies[i].checked = false;
+                    }
+                }*/
+
+            }
+        }
+    </script>
+    <input type="checkbox" id="firstCheck"/>全&nbsp;&nbsp;选<br><br>
+    <input type="checkbox" name="hobby" value="乒乓球"/>乒乓球<br>
+    <input type="checkbox" name="hobby" value="乒乓球"/>羽毛球<br>
+    <input type="checkbox" name="hobby" value="乒乓球"/>篮&nbsp;&nbsp;球<br>
+</body>
+</html>
